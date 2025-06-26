@@ -28,6 +28,65 @@ int main() {
 	int K = 8;
 	std::vector<double> prices = { 120, 220, 300, 180, 450, 270, 380, 120 };
 	std::vector<double> gains = { 50, 40, 110, 60, 100, 80, 70, 40 };
+
+	std::cout << "Do you want use default values for testing? [y/n]:\n";
+	char choice;
+	std::cin >> choice;
+	if (choice != 'y' || choice != 'Y') {
+		std::cout << "Enter student's capital:\n";
+		if (!(std::cin >> C)) {
+			std::cout << "Input error.";
+			return 1;
+		}
+		std::cout << "Enter the number of laptops that the student is able to repair:\n";
+		if (!(std::cin >> N)) {
+			std::cout << "Input error.";
+			return 1;
+		}
+		std::cout << "Enter the number of laptops available for purchase:\n";
+		if (!(std::cin >> K)) {
+			std::cout << "Input error.";
+			return 1;
+		}
+		std::cout << "Enter prices of " << K << " laptops:\n";
+		for (int i = 0; i < K; i++) {
+			if (!(std::cin >> prices[i])) {
+				std::cout << "Input error.";
+				return 1;
+			}
+		}
+		std::cout << "Enter gains of laptops:\n";
+		for (int i = 0; i < K; i++) {
+			if (!(std::cin >> gains[i])) {
+				std::cout << "Input error.";
+				return 1;
+			}
+		}
+	}
+
+	if (C < 0) {
+		std::cout << "C must be positive.";
+		return 2;
+	}
+	if (N < 0) {
+		std::cout << "N must be positive.";
+		return 2;
+	}
+	if (K < 0) {
+		std::cout << "K must be positive.";
+		return 2;
+	}
+	for (int i = 0; i < K; i++) {
+		if (prices[i] < 0) {
+			std::cout << "Prices must be positive.";
+			return 2;
+		}
+		if (gains[i] < 0) {
+			std::cout << "Gains must be positive.";
+			return 2;
+		}
+	}
+
 	std::cout << maximiseCapital(C, N, K, prices, gains);
 	return 0;
 }
