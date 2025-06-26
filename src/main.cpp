@@ -87,5 +87,20 @@ int main() {
 		}
 	}
 
+	std::cout << "Input data:\n";
+	std::cout << "C = " << C << ", N = " << N << ", K = " << K << "\n";
+	std::cout << "Prices:\n";
+	for (int i = 0; i < K; i++) {
+		std::cout << prices[i] << " ";
+	}
+	std::cout << "\n";
+	std::cout << "Gains:\n";
+	for (int i = 0; i < K; i++) {
+		std::cout << gains[i] << " ";
+	}
+	std::cout << "\n";
+
+	// std::cout << maximiseCapital(C, N, K, prices, gains);
+
 	return 0;
 }
