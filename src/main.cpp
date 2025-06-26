@@ -4,7 +4,7 @@
 double maximiseCapital(double capital, int maxCount, int countOfLaptops,
 					   std::vector<double> prices, std::vector<double> gains) {
 	for (int i = 0; i < maxCount; i++) {
-		double maxGain = -1;
+		double maxGain = 0;
 		int indexOfMaxGain = -1;
 		for (int j = 0; j < countOfLaptops; j++) {
 			if (capital >= prices[j] && gains[j] > maxGain) {
@@ -14,7 +14,9 @@ double maximiseCapital(double capital, int maxCount, int countOfLaptops,
 		}
 		if (indexOfMaxGain != -1) {
 			capital += gains[indexOfMaxGain];
-			gains[indexOfMaxGain] = -1;
+			gains[indexOfMaxGain] = 0;
+		} else {
+			break;
 		}
 	}
 	return capital;
