@@ -1,6 +1,12 @@
 #include <iostream>
 #include <vector>
 
+void printRepairDetails(int id, double price, double gain, double capital) {
+	std::cout << "Bought a laptop (id " << id << ") for $";
+	std::cout << price << " and got $" << gain;
+	std::cout << " gain. Current capital = " << capital << ".\n";
+}
+
 double maximiseCapital(double capital, int maxCount, int countOfLaptops,
 					   std::vector<double> prices, std::vector<double> gains) {
 	for (int i = 0; i < maxCount; i++) {
@@ -14,8 +20,8 @@ double maximiseCapital(double capital, int maxCount, int countOfLaptops,
 		}
 		if (indexOfMaxGain != -1) {
 			capital += gains[indexOfMaxGain];
-			std::cout << "Bought a laptop (id " << indexOfMaxGain << ") for $" << prices[indexOfMaxGain];
-			std::cout << " and got $" << gains[indexOfMaxGain] << " gain. Capital = " << capital << ".\n";
+			printRepairDetails(indexOfMaxGain, prices[indexOfMaxGain],
+							  gains[indexOfMaxGain], capital);
 			gains[indexOfMaxGain] = 0;
 		} else {
 			break;
@@ -90,7 +96,7 @@ int main() {
 	}
 
 	std::cout << "Input data:\n";
-	std::cout << "C = " << C << ", N = " << N << ", K = " << K << "\n";
+	std::cout << "Capital = " << C << ", N = " << N << ", K = " << K << "\n";
 	std::cout << "Prices:\n";
 	for (int i = 0; i < K; i++) {
 		std::cout << prices[i] << " ";
@@ -103,7 +109,7 @@ int main() {
 	std::cout << "\n";
 
 	double maxCapital = maximiseCapital(C, N, K, prices, gains);
-	std::cout << "Total capital = " << maxCapital;
+	std::cout << "Total capital at the end of the summer = " << maxCapital;
 
 	return 0;
 }
