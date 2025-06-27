@@ -14,6 +14,8 @@ double maximiseCapital(double capital, int maxCount, int countOfLaptops,
 		}
 		if (indexOfMaxGain != -1) {
 			capital += gains[indexOfMaxGain];
+			std::cout << "Bought a laptop (id " << indexOfMaxGain << ") for $" << prices[indexOfMaxGain];
+			std::cout << " and got $" << gains[indexOfMaxGain] << " gain. Capital = " << capital << ".\n";
 			gains[indexOfMaxGain] = 0;
 		} else {
 			break;
@@ -100,7 +102,8 @@ int main() {
 	}
 	std::cout << "\n";
 
-	// std::cout << maximiseCapital(C, N, K, prices, gains);
+	double maxCapital = maximiseCapital(C, N, K, prices, gains);
+	std::cout << "Total capital = " << maxCapital;
 
 	return 0;
 }
