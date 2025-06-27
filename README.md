@@ -16,7 +16,7 @@ It is necessary to develop an application that will help him maximise his capita
 <h3>Remark</h3>
 No examples of input data were provided.<br> 
 So, I referred to the context of the task:<br>
-- student is unable to repair many laptops during the summer,
+- student is unable to repair many laptops during the summer,<br>
 - the price of a laptop and the profit that can be made from its sale are not related.<br>
 (a cheaper laptop can bring more profit than a more expensive one)<br>
 (this is due to the degree of the laptop's malfunction).<br>
